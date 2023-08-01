@@ -28,17 +28,17 @@ import AdminDashboard from "./components/dashComponents/AdminDashboard.jsx"
 // Initial dashboard build had broken dependencies. Reconfiguring to account for this.
 //
 // Dashboard Components
-// import Dashboard from "./scenes/dashboard/index"
-// import Team from "./scenes/team"
-// import Invoices from "./scenes/invoices"
-// import Contacts from "./scenes/contacts"
+import Dashboard from "./scenes/dashboard/index"
+import Team from "./scenes/team"
+import Invoices from "./scenes/invoices"
+import Contacts from "./scenes/contacts"
 // import Bar from "./scenes/bar"
-// import Form from "./scenes/form"
+import Form from "./scenes/form"
 // import Line from "./scenes/line"
 // import Pie from "./scenes/pie"
-// import FAQ from "./scenes/faq"
+import FAQ from "./scenes/faq"
 // import Geography from "./scenes/geography"
-// import Calendar from "./scenes/calendar"
+import Calendar from "./scenes/calendar"
 
 function App() {
   const initialState = {
@@ -79,6 +79,10 @@ function App() {
         return
       case "dashboard":
         draft.dashboardRoute = false
+        return
+      case "session":
+        draft.loggedIn = true
+        return
     }
   }
 
@@ -118,14 +122,14 @@ function App() {
             <Route path="/admin_login" element={<AdminLogin />} />
 
             {/* Dashboard Routes */}
-            {/* <Route path="/adminDashboard/*" element={<AdminDashboard dashComponent={<Dashboard />} />} />
+            <Route path="/adminDashboard/*" element={<AdminDashboard dashComponent={<Dashboard />} />} />
             <Route path="/adminDashboard/team" element={<AdminDashboard dashComponent={<Team />} />} />
             <Route path="/adminDashboard/contacts" element={<AdminDashboard dashComponent={<Contacts />} />} />
             <Route path="/adminDashboard/invoices" element={<AdminDashboard dashComponent={<Invoices />} />} />
             <Route path="/adminDashboard/form" element={<AdminDashboard dashComponent={<Form />} />} />
             <Route path="/adminDashboard/calendar" element={<AdminDashboard dashComponent={<Calendar />} />} />
             <Route path="/adminDashboard/faq" element={<AdminDashboard dashComponent={<FAQ />} />} />
-            <Route path="/adminDashboard/bar" element={<AdminDashboard dashComponent={<Bar />} />} />
+            {/*<Route path="/adminDashboard/bar" element={<AdminDashboard dashComponent={<Bar />} />} />
             <Route path="/adminDashboard/pie" element={<AdminDashboard dashComponent={<Pie />} />} />
             <Route path="/adminDashboard/line" element={<AdminDashboard dashComponent={<Line />} />} />
             <Route path="/adminDashboard/geography" element={<AdminDashboard dashComponent={<Geography />} />} /> */}

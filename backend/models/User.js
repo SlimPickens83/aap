@@ -31,25 +31,6 @@ User.prototype.cleanUp = function () {
   }
 }
 
-// User.prototype.cleanUp = function () {
-//   if (typeof this.data.username != "string") {
-//     this.data.username = ""
-//   }
-//   if (typeof this.data.email != "string") {
-//     this.data.email = ""
-//   }
-//   if (typeof this.data.password != "string") {
-//     this.data.password = ""
-//   }
-
-//   // get rid of any bogus properties
-//   this.data = {
-//     username: this.data.username.trim().toLowerCase(),
-//     email: this.data.email.trim().toLowerCase(),
-//     password: this.data.password
-//   }
-// }
-
 User.prototype.validate = function () {
   return new Promise(async (resolve, reject) => {
     if (this.data.username == "") {
@@ -103,9 +84,11 @@ User.prototype.login = function () {
       .findOne({ username: this.data.username })
       .then(async attemptedUser => {
         const passwordValidation = await bcrypt.compare(this.data.password, attemptedUser.password)
+        console.log(attemptedUser)
         console.log(passwordValidation)
         if (attemptedUser && passwordValidation) {
           this.data = attemptedUser
+          console.log(this.data)
           this.loggedIn = true
           resolve("User match successful.")
         } else {

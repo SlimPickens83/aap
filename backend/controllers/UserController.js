@@ -7,10 +7,9 @@ exports.login = function (req, res) {
   user
     .login()
     .then(function (result) {
-      res.json({
-        username: user.data.username,
-        loggedIn: user.loggedIn
-      })
+      console.log(user.data.username)
+
+      res.json(true)
     })
     .catch(function (e) {
       res.json(false)
@@ -40,3 +39,11 @@ exports.loginStatus = function (req, res, next) {
     res.status(500).send("You must be looged in to view this page.")
   }
 }
+
+// exports.home = function (req, res) {
+//   if (req.session.user) {
+//     res.send((draft.loggedIn = true))
+//   } else {
+//     res.send((state.loggedIn = false))
+//   }
+// }
