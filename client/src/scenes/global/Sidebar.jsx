@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react"
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
-import "react-pro-sidebar/dist/css/styles.css"
+// import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
+// import "react-pro-sidebar/dist/css/styles.css"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
 import { tokens } from "../../theme"
@@ -56,9 +56,9 @@ function Sidebar() {
         }
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      {/* <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
+           LOGO AND MENU ICON 
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -79,7 +79,7 @@ function Sidebar() {
             )}
           </MenuItem>
 
-          {/* USER */}
+           USER 
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
@@ -96,7 +96,7 @@ function Sidebar() {
             </Box>
           )}
 
-          {/* MENU ITEMS */}
+           MENU ITEMS 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item title="Dashboard" to="/adminDashboard" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
@@ -123,7 +123,7 @@ function Sidebar() {
             <Item title="Geography Chart" to="/adminDashboard/geography" icon={<MapOutlinedIcon />} selected={selected} setSelected={setSelected} />
           </Box>
         </Menu>
-      </ProSidebar>
+      </ProSidebar> */}
     </Box>
   )
 }
