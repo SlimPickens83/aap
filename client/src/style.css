@@ -1,0 +1,327 @@
+.construction {
+  margin: 12px;
+  padding: 12px 36px 12px 36px;
+  color: rgb(194, 115, 18);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  max-width: 80%;
+}
+
+.city {
+  width: 80%;
+  border: solid #0d4196;
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  padding: 0px;
+}
+
+#headerChild {
+  display: flex;
+  justify-content: space-between;
+}
+
+#headerButton {
+  padding: 8px;
+  align-self: center;
+}
+
+#headerGrandchild {
+  text-align: right;
+}
+
+#logo {
+  width: 288px;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+}
+
+#splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+#splashOne,
+#splashTwo,
+#splashThree {
+  display: flex;
+  padding: 12px;
+  gap: 36px;
+  width: 100%;
+}
+
+#splashFour {
+  display: flex;
+  width: 100%;
+  margin: 12px 0px 12px 0px;
+}
+
+#topImage {
+  height: 288px;
+  width: 432px;
+}
+
+#secondImage {
+  height: 288px;
+  width: 288px;
+}
+
+#bottomChild {
+  background-color: #0d4196;
+  color: white;
+  border-radius: 12px;
+  width: 100%;
+  padding: 18px 0px 18px 0px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about {
+  margin: 56px 140px 56px 140px;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0 42px 0;
+  gap: 28px;
+}
+
+#contactChild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#faq {
+  display: flex;
+  flex-direction: column;
+}
+
+#freq {
+  color: #0d4196;
+}
+
+#login,
+#register {
+  display: flex;
+  flex-direction: column;
+}
+
+#registerContainer,
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0px 70px 0px;
+}
+
+#regSubmit {
+  margin-top: 28px;
+}
+
+#portalContainer {
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  margin: 0% 10% 0% 10%;
+}
+
+#portalMain {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+}
+
+#portalSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 6px 12px 6px;
+  background-color: darkgray;
+}
+
+#portalDisplay {
+  margin: 12px;
+  width: 100%;
+}
+
+#clientButton {
+  background-color: #0d4196;
+  color: white;
+}
+
+#portalWelcomeContainer {
+  display: flex;
+  background-color: #0d4196;
+}
+
+#welcome {
+  color: white;
+  height: 58px;
+  font-size: 34px;
+  margin-left: 3%;
+}
+
+#jobsMain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#company {
+  background-color: #0d4196;
+  color: white;
+  flex: 1;
+  padding: 6px;
+}
+
+#jobsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+#job {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 6px 0px 6px 0px;
+  padding: 6px 0px 6px 0px;
+  background-color: #596d8c;
+  color: white;
+  border-radius: 6px;
+}
+
+#adminContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#adminWelcomeContainer {
+  display: flex;
+}
+
+#adminMain {
+  display: flex;
+}
+
+#adminSidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+#adminDashboardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+#adminDashHeader {
+  font-size: 28px;
+  vertical-align: center;
+  padding: 6px 0px 0px 12px;
+}
+
+#adminDashTop {
+  display: flex;
+  height: 10%;
+  gap: 12px;
+}
+
+#adminDashCard {
+  background-color: #0d6efd;
+  flex: 1;
+  border-radius: 6px;
+}
+
+#adminDashMid {
+  display: flex;
+  height: 40%;
+  gap: 12px;
+}
+
+#adminChart {
+  background-color: #99aac7;
+  flex: 1;
+  border-radius: 3px;
+}
+
+#adminDashBottom {
+  height: 40%;
+  display: flex;
+}
+
+#adminDataTable {
+  background-color: #b9c2d2;
+  flex: 1;
+  border-radius: 3px;
+}
+
+#commissionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 80%;
+}
+
+#navdropdownContainer {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+#basic-nav-dropdown {
+  text-align: right;
+}
+
+.dropdown-menu {
+  background-color: #0d4296e5;
+  padding-left: 12px;
+  width: 20%;
+}
+
+.dropdown-item {
+  color: white;
+}
