@@ -11,12 +11,11 @@ footer {
   align-items: center;
   justify-content: center;
   margin-top: 14px;
-  max-width: 80%;
 }
 
 .city {
-  width: 80%;
-  border: solid #0d4196;
+  max-width: 75%;
+  border: 2px solid #0d4196;
   border-radius: 12px;
 }
 
@@ -29,6 +28,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 #headerContainer {
@@ -36,6 +36,7 @@ h1 {
   flex-direction: column;
   align-items: normal;
   padding: 0px;
+  max-width: 70%;
 }
 
 #headerChild {
@@ -52,53 +53,74 @@ h1 {
   text-align: right;
 }
 
+#basic-nav-dropdown {
+  text-align: right;
+}
+
 #logo {
   width: 288px;
 }
 
 #main {
   display: flex;
-  justify-content: center;
-  max-width: 80%;
-}
-
-#splash {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 80%;
+  align-items: center;
+  width: 100%;
+  padding: 48px 24px 0px 24px;
+  gap: 36px;
 }
 
 #splashOne,
-#splashTwo,
-#splashThree {
+#splashTwo {
   display: flex;
-  padding: 12px;
-  gap: 36px;
-  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 12px 0px 12px 0px;
+  gap: 24px;
+  max-width: 70%;
+  min-height: 312px;
 }
 
-#splashFour {
+#splashThree {
   display: flex;
-  width: 100%;
-  margin: 12px 0px 12px 0px;
+  justify-content: space-around;
+  padding: 12px 0px 12px 0px;
+  gap: 36px;
+  width: 70%;
+  min-height: 312px;
+}
+
+#topText {
+  max-width: 432px;
 }
 
 #topImage {
-  height: 288px;
-  width: 432px;
+  max-width: 432px;
+}
+
+#topImageChild {
+  height: auto;
+  max-width: 432px;
+}
+
+#secondChild {
+  max-width: 432px;
 }
 
 #secondImage {
-  height: 288px;
-  width: 288px;
+  height: auto;
+  max-width: 432px;
+}
+
+.thirdChild {
+  max-width: 300px;
 }
 
 #bottomChild {
   background-color: #0d4196;
   color: white;
   border-radius: 12px;
-  width: 100%;
+  max-width: 270px;
   padding: 18px 0px 18px 0px;
   display: flex;
   flex-grow: 1;
@@ -310,10 +332,6 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: right;
-}
-
-#basic-nav-dropdown {
-  text-align: right;
 }
 
 .dropdown-menu {

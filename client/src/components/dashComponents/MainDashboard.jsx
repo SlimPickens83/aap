@@ -7,7 +7,7 @@ import Sidebar from "../../scenes/global/Sidebar"
 import { columnsStateInitializer } from "@mui/x-data-grid/internals"
 import { Satellite } from "@mui/icons-material"
 
-function AdminDashboard(props) {
+function MainDashboard(props) {
   const [theme, colorMode] = useMode()
   const appState = useContext(StateContext)
 
@@ -15,7 +15,7 @@ function AdminDashboard(props) {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="adminDashboard">
+        <div className="MainDashboard">
           <Sidebar />
           <main className="content">
             <Topbar />
@@ -27,4 +27,4 @@ function AdminDashboard(props) {
   )
 }
 
-export default AdminDashboard
+export default MainDashboard

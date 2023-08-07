@@ -2,7 +2,7 @@ import React, { useState, useReducer, useEffect } from "react"
 import ReactDOM from "react-dom/client"
 import { useImmerReducer } from "use-immer"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import "./admin.css"
+import "./dash.css"
 import Axios from "axios"
 Axios.defaults.baseURL = "http://localhost:3000" || "https://aapbackend.onrender.com/"
 
@@ -23,7 +23,8 @@ import ClientRegistration from "./components/ClientRegistration.jsx"
 import Portal from "./components/Portal.jsx"
 import Commissions from "./components/Commissions.jsx"
 import AdminLogin from "./components/AdminLogin.jsx"
-import AdminDashboard from "./components/dashComponents/AdminDashboard.jsx"
+import MainDashboard from "./components/dashComponents/MainDashboard.jsx"
+import AccessDenied from "./components/accessDenied"
 
 // Initial dashboard build had broken dependencies. Reconfiguring to account for this.
 //
@@ -108,9 +109,9 @@ function App() {
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
         <BrowserRouter>
-          {state.admin ? <></> : state.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
+          {state.admin ? <></> : state.loggedIn ? <></> : <HeaderLoggedOut />}
           <Routes>
-            <Route path="/" element={state.loggedIn ? <Portal /> : <HomeGuest />} />
+            <Route path="/" element={<HomeGuest />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<Freq />} />
@@ -122,19 +123,19 @@ function App() {
             <Route path="/admin_login" element={<AdminLogin />} />
 
             {/* Dashboard Routes */}
-            <Route path="/adminDashboard/*" element={<AdminDashboard dashComponent={<Dashboard />} />} />
-            <Route path="/adminDashboard/team" element={<AdminDashboard dashComponent={<Team />} />} />
-            <Route path="/adminDashboard/contacts" element={<AdminDashboard dashComponent={<Contacts />} />} />
-            <Route path="/adminDashboard/invoices" element={<AdminDashboard dashComponent={<Invoices />} />} />
-            <Route path="/adminDashboard/form" element={<AdminDashboard dashComponent={<Form />} />} />
-            <Route path="/adminDashboard/calendar" element={<AdminDashboard dashComponent={<Calendar />} />} />
-            <Route path="/adminDashboard/faq" element={<AdminDashboard dashComponent={<FAQ />} />} />
+            <Route path="/Dashboard/*" element={state.loggedIn ? <MainDashboard dashComponent={<Dashboard />} /> : <AccessDenied />} />
+            <Route path="/Dashboard/team" element={<MainDashboard dashComponent={<Team />} />} />
+            <Route path="/Dashboard/contacts" element={<MainDashboard dashComponent={<Contacts />} />} />
+            <Route path="/Dashboard/invoices" element={<MainDashboard dashComponent={<Invoices />} />} />
+            <Route path="/Dashboard/form" element={<MainDashboard dashComponent={<Form />} />} />
+            <Route path="/Dashboard/calendar" element={<MainDashboard dashComponent={<Calendar />} />} />
+            <Route path="/Dashboard/faq" element={<MainDashboard dashComponent={<FAQ />} />} />
             {/*<Route path="/adminDashboard/bar" element={<AdminDashboard dashComponent={<Bar />} />} />
             <Route path="/adminDashboard/pie" element={<AdminDashboard dashComponent={<Pie />} />} />
             <Route path="/adminDashboard/line" element={<AdminDashboard dashComponent={<Line />} />} />
             <Route path="/adminDashboard/geography" element={<AdminDashboard dashComponent={<Geography />} />} /> */}
           </Routes>
-          {state.admin ? <></> : <Footer />}
+          {state.loggedIn ? <></> : <Footer />}
         </BrowserRouter>
       </DispatchContext.Provider>
     </StateContext.Provider>

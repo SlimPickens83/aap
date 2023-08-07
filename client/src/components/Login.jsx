@@ -19,7 +19,7 @@ function Login(props) {
       console.log(response)
       if (response.data) {
         appDispatch({ type: "login", data: response.data })
-        navigate("/")
+        navigate("/Dashboard")
       } else {
         console.log(`Incorrect username (${username}) / password (${password})`)
       }

@@ -8,7 +8,7 @@ import logo from "../assets/aa-p_mk2.png"
 
 function HeaderLoggedOut() {
   return (
-    <div style={{ marginLeft: "20%", marginRight: "20%" }}>
+    <div>
       <Navbar id="header" expand="lg" data-bs-theme="light">
         <div className="alert construction alert-warning">Under construction.</div>
         <Container id="headerContainer">
