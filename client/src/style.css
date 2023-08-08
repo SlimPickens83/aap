@@ -14,13 +14,12 @@ footer {
 }
 
 .city {
-  max-width: 75%;
+  max-width: 70%;
   border: 2px solid #0d4196;
   border-radius: 12px;
 }
 
 h1 {
-  text-align: center;
   margin-bottom: 28px;
 }
 
@@ -28,7 +27,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  max-width: 100%;
 }
 
 #headerContainer {
@@ -65,28 +64,38 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 48px 24px 0px 24px;
+  max-width: 100%;
+  padding: 48px 0px 0px 0px;
   gap: 36px;
 }
 
-#splashOne,
+#splashOne {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 12px 0px 12px 0px;
+  gap: 120px;
+  width: 70%;
+  min-height: 312px;
+}
+
 #splashTwo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 12px 0px 12px 0px;
-  gap: 24px;
-  max-width: 70%;
+  justify-content: flex-start;
+  padding: 12px 0px 6px 0px;
+  gap: 120px;
+  width: 70%;
   min-height: 312px;
 }
 
 #splashThree {
   display: flex;
-  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
   padding: 12px 0px 12px 0px;
   gap: 36px;
-  width: 70%;
+  max-width: 70%;
   min-height: 312px;
 }
 
@@ -113,7 +122,7 @@ h1 {
 }
 
 .thirdChild {
-  max-width: 300px;
+  max-width: 70%;
 }
 
 #bottomChild {
@@ -178,6 +187,8 @@ h1 {
 #regSubmit {
   margin-top: 28px;
 }
+
+/* Portal */
 
 #portalContainer {
   display: flex;
@@ -342,4 +353,10 @@ h1 {
 
 .dropdown-item {
   color: white;
+}
+
+@media (max-width: 1440px) {
+  #splashThree {
+    flex-wrap: wrap;
+  }
 }
