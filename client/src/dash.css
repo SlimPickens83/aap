@@ -3,14 +3,14 @@
 html,
 body,
 #root,
-.adminDashboard,
+.mainDashboard,
 .content {
   height: 100%;
   width: 100%;
   font-family: "Source Sans 3", sans-serif;
 }
 
-.adminDashboard {
+.mainDashboard {
   display: flex;
   position: relative;
 }
@@ -32,4 +32,9 @@ body,
 /* Handle on Hover */
 ::-webkit-scrollbar-track:hover {
   background: #555;
+}
+
+/* Sidebar */
+.ps-sidebar-container {
+  background-color: #2a2d64 !important;
 }

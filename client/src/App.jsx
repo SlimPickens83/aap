@@ -109,7 +109,7 @@ function App() {
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
         <BrowserRouter>
-          {state.admin ? <></> : state.loggedIn ? <></> : <HeaderLoggedOut />}
+          {state.admin ? undefined : state.loggedIn ? undefined : <HeaderLoggedOut />}
           <Routes>
             <Route path="/" element={<HomeGuest />} />
             <Route path="/about" element={<About />} />
@@ -135,7 +135,7 @@ function App() {
             <Route path="/adminDashboard/line" element={<AdminDashboard dashComponent={<Line />} />} />
             <Route path="/adminDashboard/geography" element={<AdminDashboard dashComponent={<Geography />} />} /> */}
           </Routes>
-          {state.loggedIn ? <></> : <Footer />}
+          {state.loggedIn ? undefined : <Footer />}
         </BrowserRouter>
       </DispatchContext.Provider>
     </StateContext.Provider>

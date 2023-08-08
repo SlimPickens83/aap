@@ -3,7 +3,7 @@ import { ColorModeContext, useMode } from "../../theme"
 import { CssBaseline, ThemeProvider, dividerClasses } from "@mui/material"
 import StateContext from "../../StateContext"
 import Topbar from "../../scenes/global/Topbar"
-import Sidebar from "../../scenes/global/Sidebar"
+import Side from "../../scenes/global/Sidebar"
 import { columnsStateInitializer } from "@mui/x-data-grid/internals"
 import { Satellite } from "@mui/icons-material"
 
@@ -15,8 +15,8 @@ function MainDashboard(props) {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="MainDashboard">
-          <Sidebar />
+        <div className="mainDashboard">
+          <Side />
           <main className="content">
             <Topbar />
             {props.dashComponent}

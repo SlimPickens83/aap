@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react"
-// import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
-// import "react-pro-sidebar/dist/css/styles.css"
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
 import { tokens } from "../../theme"
@@ -23,24 +22,24 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   const colors = tokens(theme.palette.mode)
 
   return (
-    <MenuItem active={selected === title} style={{ color: colors.grey[100] }} onClick={() => setSelected(title)} icon={icon}>
+    <MenuItem active={selected === title} href={to} style={{ color: colors.grey[100] }} onClick={() => setSelected(title)} icon={icon}>
       <Typography>{title}</Typography>
-      <Link to={to} />
+      {/* <Link to={linkTo} /> */}
     </MenuItem>
   )
 }
 
-function Sidebar() {
+function Side() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const [selected, setSelected] = useState("Dashboard")
+  const [selected, setSelected] = useState("MainDashboard")
 
   return (
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`
+          background: "black !important"
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important"
@@ -56,9 +55,9 @@ function Sidebar() {
         }
       }}
     >
-      {/* <ProSidebar collapsed={isCollapsed}>
+      <Sidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-           LOGO AND MENU ICON 
+          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -78,8 +77,7 @@ function Sidebar() {
               </Box>
             )}
           </MenuItem>
-
-           USER 
+          {/* USER */}
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
@@ -95,37 +93,36 @@ function Sidebar() {
               </Box>
             </Box>
           )}
-
-           MENU ITEMS 
+          {/* MENU ITEMS */}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item title="Dashboard" to="/adminDashboard" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Dashboard" to="/Dashboard" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Data
             </Typography>
-            <Item title="Manage Team" to="/adminDashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Contacts Information" to="/adminDashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Invoice Balances" to="/adminDashboard/invoices" icon={<ReceiptOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Manage Team" to="/Dashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Contacts Information" to="/Dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Invoice Balances" to="/Dashboard/invoices" icon={<ReceiptOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Pages
             </Typography>
-            <Item title="Profile Form" to="/adminDashboard/form" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Calendar" to="/adminDashboard/calendar" icon={<CalendarTodayOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="FAQ Page" to="/adminDashboard/faq" icon={<HelpOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Profile Form" to="/Dashboard/form" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Calendar" to="/Dashboard/calendar" icon={<CalendarTodayOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="FAQ Page" to="/Dashboard/faq" icon={<HelpOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Data
             </Typography>
-            <Item title="Bar Chart" to="/adminDashboard/bar" icon={<BarChartOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Pie Chart" to="/adminDashboard/pie" icon={<PieChartOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Line Chart" to="/adminDashboard/line" icon={<TimelineOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Geography Chart" to="/adminDashboard/geography" icon={<MapOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Bar Chart" to="/Dashboard/bar" icon={<BarChartOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Pie Chart" to="/Dashboard/pie" icon={<PieChartOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Line Chart" to="/Dashboard/line" icon={<TimelineOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Geography Chart" to="/Dashboard/geography" icon={<MapOutlinedIcon />} selected={selected} setSelected={setSelected} />
           </Box>
         </Menu>
-      </ProSidebar> */}
+      </Sidebar>
     </Box>
   )
 }
 
-export default Sidebar
+export default Side
