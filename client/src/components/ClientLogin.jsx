@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Axios from "axios"
 import DispatchContext from "../DispatchContext"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 
-function clientLogin(props) {
+function ClientLogin(props) {
   const appDispatch = useContext(DispatchContext)
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()

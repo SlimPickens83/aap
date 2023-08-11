@@ -1,15 +1,18 @@
 const User = require("../models/User")
 
 exports.login = function (req, res) {
-  console.log(req.body)
+  console.log("*NEW LOGIN*")
+
   let user = new User(req.body)
+  console.log("user in UserController.js, exports.login:")
   console.log(user)
   user
     .login()
     .then(function (result) {
-      console.log(user.data.username)
+      console.log("result in UserController.js, exports.login:")
+      console.log(result)
 
-      res.json(true)
+      res.json(result)
     })
     .catch(function (e) {
       res.json(false)

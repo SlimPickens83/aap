@@ -72,7 +72,8 @@ function Registration() {
       const response = await Axios.post("/register", {
         username: state.username.value,
         email: state.email.value,
-        password: state.password.value
+        password: state.password.value,
+        clientKey: state.clientKey.value
       })
       appDispatch({ type: "register", data: response.data.user.data })
     } catch {
@@ -80,7 +81,7 @@ function Registration() {
     }
   }
 
-  const redirectToRoot = () => navigate("/")
+  const redirectToDash = () => navigate("/dashboard")
 
   useEffect(() => {
     if (state.errors.value) {
@@ -93,7 +94,7 @@ function Registration() {
       const ourRequest = Axios.CancelToken.source()
       clientAuth()
         .then(register)
-        .then(redirectToRoot)
+        .then(redirectToDash)
         .catch(() => dispatch({ type: "errors", value: "There was a problem." }))
       return () => ourRequest.cancel()
     }

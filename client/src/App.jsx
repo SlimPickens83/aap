@@ -64,6 +64,8 @@ function App() {
       case "login":
         draft.loggedIn = true
         draft.user = action.data
+        console.log(`draft.user in mainReducer in App.jsx:`)
+        console.log(draft.user)
         return
       case "register":
         draft.loggedIn = true

@@ -84,13 +84,13 @@ User.prototype.login = function () {
       .findOne({ username: this.data.username })
       .then(async attemptedUser => {
         const passwordValidation = await bcrypt.compare(this.data.password, attemptedUser.password)
+        console.log("attempted User in User.js, User.prototype.login:")
         console.log(attemptedUser)
-        console.log(passwordValidation)
         if (attemptedUser && passwordValidation) {
-          this.data = attemptedUser
-          console.log(this.data)
+          this.data.username = attemptedUser.username
           this.loggedIn = true
-          resolve("User match successful.")
+          console.log("*This* in User.prototype.")
+          resolve(this)
         } else {
           reject("Invalid username / password.")
         }

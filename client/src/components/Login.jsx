@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Axios from "axios"
 import DispatchContext from "../DispatchContext"
@@ -16,7 +16,8 @@ function Login(props) {
 
     try {
       const response = await Axios.post("/login", { username, password })
-      console.log(response)
+      console.log(`Response in Login.jsx, inside of try:`)
+      console.log({ response })
       if (response.data) {
         appDispatch({ type: "login", data: response.data })
         navigate("/Dashboard")
