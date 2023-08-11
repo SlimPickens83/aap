@@ -3,7 +3,9 @@ const Client = require("../models/Client")
 exports.ifClientExists = function (req, res, next) {
   Client.findByKey(req.body.clientKey)
     .then(function (clientDocument) {
-      req.client = clientDocument
+      console.log("clientDocument inside of ClientController.js, exports.ifClientExists:")
+      console.log(clientDocument)
+      req.clientMember = clientDocument
       next()
     })
     .catch(function (e) {
@@ -12,13 +14,12 @@ exports.ifClientExists = function (req, res, next) {
 }
 
 exports.clientData = function (req, res) {
-  if (req.client) {
-    res.json({
-      clientName: req.client.clientName
-    })
-  } else {
-    res.json(false)
-  }
+  console.log("req.clientMember in ClientController.js, exports.clientData:")
+  console.log(req.clientMember)
+
+  res.json({
+    clientName: req.clientMember.clientName
+  })
 }
 
 exports.register = function (req, res) {

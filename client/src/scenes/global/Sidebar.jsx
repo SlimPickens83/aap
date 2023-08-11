@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react"
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
+import StateContext from "../../StateContext"
 import { tokens } from "../../theme"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
@@ -34,6 +35,7 @@ function Side() {
   const colors = tokens(theme.palette.mode)
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [selected, setSelected] = useState("MainDashboard")
+  const appState = useContext(StateContext)
 
   return (
     <Box
@@ -69,7 +71,7 @@ function Side() {
             {!isCollapsed && (
               <Box display="flex" justifyContent="space-between" alignItems="center" ml="15px">
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMIN
+                  {appState.admin ? "ADMIN" : appState.accountAuth ? "CLIENT" : "EMPLOYEE"}
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -85,7 +87,7 @@ function Side() {
               </Box>
               <Box textAlign="center">
                 <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>
-                  Guest
+                  {appState.user.data.username}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Guest Admin

@@ -62,9 +62,12 @@ function Registration() {
   const [state, dispatch] = useImmerReducer(regReducer, initialState)
 
   const clientAuth = async function () {
-    await Axios.post("/clientAuth", { clientKey: state.clientKey.value }, "clientKey")
-      .then(() => appDispatch({ type: "clientAuth" }))
-      .catch(() => dispatch({ type: "errors", value: "Undetermined client authentication error." }))
+    try {
+      const response = await Axios.post("/clientAuth", { clientKey: state.clientKey.value })
+      appDispatch({ type: "clientAuth", data: response.data.clientName })
+    } catch {
+      dispatch({ type: "errors", value: "Undetermined client authentication error." })
+    }
   }
 
   const register = async function () {
@@ -75,7 +78,7 @@ function Registration() {
         password: state.password.value,
         clientKey: state.clientKey.value
       })
-      appDispatch({ type: "register", data: response.data.user.data })
+      appDispatch({ type: "login", data: response.data.user.data })
     } catch {
       dispatch({ type: "errors", value: "There was a problem or the request was canceled." })
     }

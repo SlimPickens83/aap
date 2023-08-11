@@ -64,16 +64,16 @@ function App() {
       case "login":
         draft.loggedIn = true
         draft.user = action.data
-        console.log(`draft.user in mainReducer in App.jsx:`)
-        console.log(draft.user)
         return
       case "register":
         draft.loggedIn = true
         draft.user = action.data
+        console.log(`draft.user in "register" in mainReducer in App.jsx:`)
+        console.log(draft.user)
         return
       case "clientAuth":
         draft.clientAuth = true
-        draft.client = action.data
+        draft.clientData = action.data
         return
       case "accountAuth":
         draft.clientAuth = true
@@ -92,10 +92,16 @@ function App() {
   const [state, dispatch] = useImmerReducer(mainReducer, initialState)
 
   useEffect(() => {
+    console.log(state.loggedIn)
+    console.log("state.user:")
+    console.log(state.user)
     if (state.loggedIn) {
       localStorage.setItem("aaUsername", state.user.username)
     } else {
       localStorage.removeItem("aaUsername")
+    }
+    return () => {
+      state.loggedIn = false
     }
   }, [state.loggedIn])
 
