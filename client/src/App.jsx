@@ -43,6 +43,7 @@ import Calendar from "./scenes/calendar"
 function App() {
   const initialState = {
     loggedIn: false,
+    initialReg: false,
     clientAuth: false,
     accountAuth: false,
     admin: false,
@@ -66,6 +67,9 @@ function App() {
         return
       case "register":
         draft.loggedIn = true
+        draft.initialReg = true
+        console.log("draft.initialReg after update by register case of mainReducer:")
+        console.log(draft.initialReg)
         draft.user = action.data
         console.log(`draft.user in "register" in mainReducer in App.jsx:`)
         console.log(draft.user)

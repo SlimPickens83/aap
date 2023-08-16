@@ -36,6 +36,16 @@ function Side() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [selected, setSelected] = useState("MainDashboard")
   const appState = useContext(StateContext)
+  let currentUser
+  const currentUserFind = () => {
+    if (appState.initialReg) {
+      currentUser = appState.user.username
+    } else if (appState.initialReg === false) {
+      currentUser = appState.user.data.username
+    }
+  }
+
+  currentUserFind()
 
   return (
     <Box
@@ -87,7 +97,7 @@ function Side() {
               </Box>
               <Box textAlign="center">
                 <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>
-                  {appState.user.data.username}
+                  {currentUser}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Guest Admin
