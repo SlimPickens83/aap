@@ -3,7 +3,6 @@ const usersCollection = require("../db").db().collection("users")
 const validator = require("validator")
 
 let User = function (data) {
-  this.loggedIn = false
   this.admin = false
   this.client = false
   this.employee = false

@@ -20,7 +20,6 @@ import Freq from "./components/Freq.jsx"
 import Login from "./components/Login.jsx"
 import Registration from "./components/Registration.jsx"
 import ClientRegistration from "./components/ClientRegistration.jsx"
-import Portal from "./components/Portal.jsx"
 import Commissions from "./components/Commissions.jsx"
 import AdminLogin from "./components/AdminLogin.jsx"
 import MainDashboard from "./components/dashComponents/MainDashboard.jsx"
@@ -92,16 +91,10 @@ function App() {
   const [state, dispatch] = useImmerReducer(mainReducer, initialState)
 
   useEffect(() => {
-    console.log(state.loggedIn)
-    console.log("state.user:")
-    console.log(state.user)
     if (state.loggedIn) {
       localStorage.setItem("aaUsername", state.user.username)
     } else {
       localStorage.removeItem("aaUsername")
-    }
-    return () => {
-      state.loggedIn = false
     }
   }, [state.loggedIn])
 
@@ -126,7 +119,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/clientRegistration" element={<ClientRegistration />} />
-            <Route path="/portal" element={<Portal />} />
             <Route path="/commissions" element={<Commissions />} />
             <Route path="/admin_login" element={<AdminLogin />} />
 

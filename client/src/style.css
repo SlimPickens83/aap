@@ -1,63 +1,7 @@
-.construction {
-  margin: 12px;
-  padding: 12px 36px 12px 36px;
-  color: rgb(194, 115, 18);
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-}
-
-.city {
-  max-width: 70%;
-  border: 2px solid #0d4196;
-  border-radius: 12px;
-}
+/* Public Main */
 
 h1 {
   margin-bottom: 28px;
-}
-
-#header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 100%;
-}
-
-#headerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: normal;
-  padding: 0px;
-  max-width: 70%;
-}
-
-#headerChild {
-  display: flex;
-  justify-content: space-between;
-}
-
-#headerButton {
-  padding: 8px;
-  align-self: center;
-}
-
-#headerGrandchild {
-  text-align: right;
-}
-
-#basic-nav-dropdown {
-  text-align: right;
-}
-
-#logo {
-  width: 288px;
 }
 
 #main {
@@ -71,7 +15,6 @@ h1 {
 
 #splashOne {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   padding: 12px 0px 12px 0px;
   gap: 120px;
@@ -81,7 +24,6 @@ h1 {
 
 #splashTwo {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   padding: 12px 0px 6px 0px;
   gap: 120px;
@@ -99,7 +41,7 @@ h1 {
   min-height: 312px;
 }
 
-#topText {
+#mainText {
   max-width: 432px;
 }
 
@@ -147,196 +89,75 @@ h1 {
   margin: 56px 140px 56px 140px;
 }
 
-#contact {
+@media (max-width: 1080px) {
+  #splashOne,
+  #splashTwo,
+  #splashThree {
+    flex-direction: column;
+    justify-content: none;
+    align-items: center;
+  }
+
+  #splashOne,
+  #splashTwo {
+    gap: 60px;
+  }
+
+  #splashThree {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+}
+
+/* Header Logged Out */
+
+#header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 70px 0 42px 0;
-  gap: 28px;
+  justify-content: center;
+  max-width: 100%;
 }
 
-#contactChild {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#faq {
-  display: flex;
-  flex-direction: column;
-}
-
-#freq {
-  color: #0d4196;
-}
-
-#login,
-#register {
-  display: flex;
-  flex-direction: column;
-}
-
-#registerContainer,
-#loginContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 70px 0px 70px 0px;
-}
-
-#regSubmit {
-  margin-top: 28px;
-}
-
-/* Portal */
-
-#portalContainer {
-  display: flex;
-  flex-direction: column;
-  height: 720px;
-  margin: 0% 10% 0% 10%;
-}
-
-#portalMain {
-  display: flex;
-  gap: 12px;
-  height: 100%;
-}
-
-#portalSidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 12px 6px 12px 6px;
-  background-color: darkgray;
-}
-
-#portalDisplay {
+.construction {
   margin: 12px;
-  width: 100%;
+  padding: 12px 36px 12px 36px;
+  color: rgb(194, 115, 18);
 }
 
-#clientButton {
-  background-color: #0d4196;
-  color: white;
-}
-
-#portalWelcomeContainer {
-  display: flex;
-  background-color: #0d4196;
-}
-
-#welcome {
-  color: white;
-  height: 58px;
-  font-size: 34px;
-  margin-left: 3%;
-}
-
-#jobsMain {
+#headerContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: normal;
+  padding: 0px;
+  max-width: 70%;
 }
 
-#company {
-  background-color: #0d4196;
-  color: white;
-  flex: 1;
-  padding: 6px;
+@media (max-width: 1080px) {
+  #headerContainer {
+    max-width: 440px;
+  }
 }
 
-#jobsContainer {
+#headerChild {
   display: flex;
-  flex-direction: column;
-  margin-top: 12px;
+  justify-content: space-between;
 }
 
-#job {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  margin: 6px 0px 6px 0px;
-  padding: 6px 0px 6px 0px;
-  background-color: #596d8c;
-  color: white;
-  border-radius: 6px;
+#headerButton {
+  padding: 8px;
+  align-self: center;
 }
 
-#adminContainer {
-  display: flex;
-  flex-direction: column;
+#headerGrandchild {
+  text-align: right;
 }
 
-#adminWelcomeContainer {
-  display: flex;
+#basic-nav-dropdown {
+  text-align: right;
 }
 
-#adminMain {
-  display: flex;
-}
-
-#adminSidebar {
-  display: flex;
-  flex-direction: column;
-}
-
-#adminDashboardContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 12px;
-}
-
-#adminDashHeader {
-  font-size: 28px;
-  vertical-align: center;
-  padding: 6px 0px 0px 12px;
-}
-
-#adminDashTop {
-  display: flex;
-  height: 10%;
-  gap: 12px;
-}
-
-#adminDashCard {
-  background-color: #0d6efd;
-  flex: 1;
-  border-radius: 6px;
-}
-
-#adminDashMid {
-  display: flex;
-  height: 40%;
-  gap: 12px;
-}
-
-#adminChart {
-  background-color: #99aac7;
-  flex: 1;
-  border-radius: 3px;
-}
-
-#adminDashBottom {
-  height: 40%;
-  display: flex;
-}
-
-#adminDataTable {
-  background-color: #b9c2d2;
-  flex: 1;
-  border-radius: 3px;
-}
-
-#commissionsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo {
-  width: 80%;
+#logo {
+  width: 288px;
 }
 
 #navdropdownContainer {
@@ -355,8 +176,65 @@ h1 {
   color: white;
 }
 
-@media (max-width: 1440px) {
-  #splashThree {
-    flex-wrap: wrap;
-  }
+/* Footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.city {
+  max-width: 70%;
+  border: 2px solid #0d4196;
+  border-radius: 12px;
+}
+
+/* Public Contact */
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0 42px 0;
+  gap: 28px;
+}
+
+#contactChild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Public FAQ */
+
+#faq {
+  display: flex;
+  flex-direction: column;
+}
+
+#freq {
+  color: #0d4196;
+}
+
+/* Public Login & Register */
+#login,
+#register {
+  display: flex;
+  flex-direction: column;
+}
+
+#registerContainer,
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0px 70px 0px;
+}
+
+#regSubmit {
+  margin-top: 28px;
 }

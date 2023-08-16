@@ -8,7 +8,7 @@ function HomeGuest() {
     <Page title="Welcome">
       <div id="main">
         <div id="splashOne">
-          <div id="topText">
+          <div id="mainText">
             <h1 style={{ color: "text-secondary" }}>Effective business accounting serving the Pittsburgh area.</h1>
             <h5>AccountAbility Pittsburgh has been serving clients in the greater Pittsburgh area going on two decades. We provide accurate, high efficiency financial accounting to save you time and money. Let us handle the numbers, so you can focus on what matters most – growing your business.</h5>
           </div>
@@ -18,7 +18,7 @@ function HomeGuest() {
         </div>
 
         <div id="splashTwo">
-          <div id="secondChild">
+          <div id="mainText">
             <h1 style={{ color: "text-secondary" }}>We make cash flow.</h1>
             <h5>With years of experience serving small businesses, we've honed our expertise to deliver top-notch accounting solutions that truly make a difference. We specialize in simplifying your financial processes, ensuring compliance, and maximizing your profits. Our comprehensive suite of accounting services, including bookkeeping, tax planning, and financial consulting, is designed to meet your specific needs.</h5>
           </div>

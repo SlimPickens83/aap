@@ -78,7 +78,7 @@ function Registration() {
         password: state.password.value,
         clientKey: state.clientKey.value
       })
-      appDispatch({ type: "login", data: response.data.user.data })
+      appDispatch({ type: "register", data: response.data.user.data })
     } catch {
       dispatch({ type: "errors", value: "There was a problem or the request was canceled." })
     }
