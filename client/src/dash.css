@@ -5,7 +5,7 @@ body,
 #root,
 .mainDashboard,
 .content {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   font-family: "Source Sans 3", sans-serif;
 }
@@ -35,6 +35,8 @@ body,
 }
 
 /* Sidebar */
-.ps-sidebar-container {
+.ps-sidebar-container,
+.ps-sidebar-root {
   background-color: #2a2d64 !important;
+  min-height: 100%;
 }
