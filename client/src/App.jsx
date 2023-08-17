@@ -126,8 +126,12 @@ function App() {
           if (!response.data) {
             dispatch({ type: "logout" })
           }
-        } catch (e) {}
+        } catch (e) {
+          console.log("There was a problem or the request was canceled.")
+        }
       }
+      fetchResults()
+      return () => ourRequest.cancel()
     }
   }, [])
 
