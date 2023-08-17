@@ -1,4 +1,17 @@
 const User = require("../models/User")
+const jwt = require("jsonwebtoken")
+
+// Tokens expire after one week.
+const tokenLasts = "7d"
+
+exports.checkToken = function (req, res) {
+  try {
+    req.apiUser = jwt.verify(req.body.token, process.env.JWTSECRET)
+    res.json(true)
+  } catch (e) {
+    res.json(false)
+  }
+}
 
 exports.login = function (req, res) {
   console.log("*NEW LOGIN*")
@@ -42,11 +55,3 @@ exports.loginStatus = function (req, res, next) {
     res.status(500).send("You must be looged in to view this page.")
   }
 }
-
-// exports.home = function (req, res) {
-//   if (req.session.user) {
-//     res.send((draft.loggedIn = true))
-//   } else {
-//     res.send((state.loggedIn = false))
-//   }
-// }

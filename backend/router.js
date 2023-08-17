@@ -5,11 +5,19 @@ const clientController = require("./controllers/ClientController")
 const adminController = require("./controllers/AdminController")
 const cors = require("cors")
 
-router.use(cors())
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200
+}
+
+router.use(cors(corsOptions))
 
 console.log("Router is running.")
 
 router.get("/", (req, res) => res.json("Hello, if you see this message that means your backend is up and running successfully."))
+
+// Check token. Will log out on front end if expired.
+router.post("/checkToken", userController.checkToken)
 
 // User routes
 router.post("/register", userController.register)

@@ -39,17 +39,19 @@ import Form from "./scenes/form"
 import FAQ from "./scenes/faq"
 // import Geography from "./scenes/geography"
 import Calendar from "./scenes/calendar"
+import { CardGiftcard, FormatListNumbered } from "@mui/icons-material"
 
 function App() {
   const initialState = {
-    loggedIn: false,
+    loggedIn: Boolean(localStorage.getItem("aapToken")),
     initialReg: false,
     clientAuth: false,
     accountAuth: false,
     admin: false,
     dashboardRoute: true,
     user: {
-      username: localStorage.getItem("aaUsername")
+      token: localStorage.getItem("aapToken"),
+      username: localStorage.getItem("aapUsername")
     },
     clientData: {
       clientName: localStorage.getItem("clientName")
@@ -89,6 +91,9 @@ function App() {
       case "session":
         draft.loggedIn = true
         return
+      case "logout":
+        draft.loggedIn = false
+        return
     }
   }
 
@@ -96,9 +101,11 @@ function App() {
 
   useEffect(() => {
     if (state.loggedIn) {
-      localStorage.setItem("aaUsername", state.user.username)
+      localStorage.setItem("aapToken", state.user.token)
+      localStorage.setItem("aapUsername", state.user.username)
     } else {
-      localStorage.removeItem("aaUsername")
+      localStorage.removeItem("aapToken")
+      localStorage.removeItem("aapUsername")
     }
   }, [state.loggedIn])
 
@@ -109,6 +116,20 @@ function App() {
       localStorage.removeItem("clientName")
     }
   }, [state.clientAuth])
+
+  useEffect(() => {
+    if (state.loggedIn) {
+      const ourRequest = Axios.CancelToken.source()
+      async function fetchResults() {
+        try {
+          const response = await Axios.post("/checkToken", { token: state.user.token }, { cancelToken: ourRequest.token })
+          if (!response.data) {
+            dispatch({ type: "logout" })
+          }
+        } catch (e) {}
+      }
+    }
+  }, [])
 
   return (
     <StateContext.Provider value={state}>
