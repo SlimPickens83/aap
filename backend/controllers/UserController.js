@@ -25,7 +25,10 @@ exports.login = function (req, res) {
       console.log("result in UserController.js, exports.login:")
       console.log(result)
 
-      res.json(result)
+      res.json({
+        token: jwt.sign({ _id: user.data._id, username: user.data.username }, process.env.JWTSECRET, { expiresIn: tokenLasts }),
+        username: user.data.username
+      })
     })
     .catch(function (e) {
       res.json(false)
@@ -38,7 +41,8 @@ exports.register = function (req, res) {
     .register()
     .then(() => {
       res.json({
-        user: user
+        token: jwt.sign({ _id: user.data._id, username: user.data.username }, process.env.JWTSECRET, { expiresIn: tokenLasts }),
+        username: user.data.username
       })
     })
     .catch(regErrors => {

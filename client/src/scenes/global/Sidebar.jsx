@@ -38,7 +38,7 @@ function Side() {
   const appState = useContext(StateContext)
   let currentUser
   const currentUserFind = () => {
-    if (appState.initialReg) {
+    if (appState.initialReg || appState.user.token) {
       currentUser = appState.user.username
     } else if (appState.initialReg === false) {
       currentUser = appState.user.data.username
