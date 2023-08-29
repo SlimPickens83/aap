@@ -33,7 +33,7 @@ import Team from "./scenes/team"
 import Invoices from "./scenes/invoices"
 import Contacts from "./scenes/contacts"
 // import Bar from "./scenes/bar"
-import Form from "./scenes/form"
+import AddClient from "./scenes/addClient"
 // import Line from "./scenes/line"
 // import Pie from "./scenes/pie"
 import FAQ from "./scenes/faq"
@@ -152,7 +152,7 @@ function App() {
             <Route path="/Dashboard/team" element={<MainDashboard dashComponent={<Team />} />} />
             <Route path="/Dashboard/contacts" element={<MainDashboard dashComponent={<Contacts />} />} />
             <Route path="/Dashboard/invoices" element={<MainDashboard dashComponent={<Invoices />} />} />
-            <Route path="/Dashboard/form" element={<MainDashboard dashComponent={<Form />} />} />
+            <Route path="/Dashboard/addClient" element={<MainDashboard dashComponent={<AddClient />} />} />
             <Route path="/Dashboard/calendar" element={<MainDashboard dashComponent={<Calendar />} />} />
             <Route path="/Dashboard/faq" element={<MainDashboard dashComponent={<FAQ />} />} />
             {/*<Route path="/adminDashboard/bar" element={<AdminDashboard dashComponent={<Bar />} />} />

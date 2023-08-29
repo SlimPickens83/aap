@@ -16,7 +16,7 @@ const initialValues = {
 
 const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
 
-const userSchema = yup.object().shape({
+const clientSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup.string().email("Invalid email").required("required"),
@@ -25,7 +25,7 @@ const userSchema = yup.object().shape({
   address2: yup.string().required("required")
 })
 
-function Form() {
+function AddClient() {
   const isNonMobile = useMediaQuery("(min-width: 600px)")
 
   const handleFormSubmit = values => {
@@ -34,9 +34,9 @@ function Form() {
 
   return (
     <Box m="20px">
-      <AdminHeader title="CREATE USER" subtitle="Create a New User Profile" />
+      <AdminHeader title="CREATE CLIENT" subtitle="Create a New Client Profile" />
 
-      <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={userSchema}>
+      <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={clientSchema}>
         {({ values, errors, touched, handleBlur, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <Box display="grid" gap="30px" gridTemplateColumns="repeat(4, minmax(0, 1fr))" sx={{ "& div": { gridColumn: isNonMobile ? undefined : "span 4" } }}>
@@ -59,4 +59,4 @@ function Form() {
   )
 }
 
-export default Form
+export default AddClient

@@ -112,14 +112,14 @@ function Side() {
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Data
             </Typography>
-            <Item title="Manage Team" to="/Dashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Manage Users" to="/Dashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Contacts Information" to="/Dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Invoice Balances" to="/Dashboard/invoices" icon={<ReceiptOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Pages
             </Typography>
-            <Item title="Profile Form" to="/Dashboard/form" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Add Clients" to="/Dashboard/addClient" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Calendar" to="/Dashboard/calendar" icon={<CalendarTodayOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="FAQ Page" to="/Dashboard/faq" icon={<HelpOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
