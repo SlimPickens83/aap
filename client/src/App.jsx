@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useEffect } from "react"
 import ReactDOM from "react-dom/client"
 import { useImmerReducer } from "use-immer"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import "./dash.css"
 import Axios from "axios"
 Axios.defaults.baseURL = "http://localhost:3000" || "https://aapbackend.onrender.com/"
@@ -137,7 +137,7 @@ function App() {
         <BrowserRouter>
           {state.admin ? undefined : state.loggedIn ? undefined : <HeaderLoggedOut />}
           <Routes>
-            <Route path="/" element={<HomeGuest />} />
+            <Route path="/" element={state.admin ? <Navigate to="/Dashboard" /> : state.loggedIn ? <Navigate to="/Dashboard" /> : <HomeGuest />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<Freq />} />
