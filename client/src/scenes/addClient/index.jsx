@@ -1,9 +1,12 @@
+import { useContext, useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Box, Button, TextField } from "@mui/material"
+import Axios from "axios"
+import DispatchContext from "../../DispatchContext"
 import { Formik } from "formik"
 import * as yup from "yup"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import AdminHeader from "../../components/dashComponents/AdminHeader"
-import { ErrorSharp, TouchAppRounded } from "@mui/icons-material"
 
 const initialValues = {
   firstName: "",
@@ -27,8 +30,27 @@ const clientSchema = yup.object().shape({
 
 function AddClient() {
   const isNonMobile = useMediaQuery("(min-width: 600px)")
+  const appDispatch = useContext(DispatchContext)
+  const navigate = useNavigate()
+  const redirect = () => navigate("/")
+  const [errors, setErrors] = useState()
+
+  const registerFormik = async function (values) {
+    try {
+      const response = await Axios.post("/clientRegister", {
+        username: values.username,
+        email: values.email,
+        password: values.password
+      })
+      appDispatch({ type: "register", data: response.data.user.data })
+      redirect()
+    } catch {
+      setErrors("There was a problem or the request was canceled.")
+    }
+  }
 
   const handleFormSubmit = values => {
+    registerFormik(values)
     console.log(values)
   }
 
@@ -48,6 +70,7 @@ function AddClient() {
               <TextField fullWidth variant="filled" type="text" label="Address 2" onBlur={handleBlur} onChange={handleChange} value={values.address2} name="address2" error={!!touched.address2 && !!errors.address2} helperText={touched.address2 && errors.address2} sx={{ gridColumn: "span 4" }} />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
+              {/* Button should add a new client to the database  */}
               <Button type="submit" color="secondary" variant="contained">
                 Create New User
               </Button>

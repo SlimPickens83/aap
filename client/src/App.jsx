@@ -25,8 +25,6 @@ import AdminLogin from "./components/AdminLogin.jsx"
 import MainDashboard from "./components/dashComponents/MainDashboard.jsx"
 import AccessDenied from "./components/accessDenied"
 
-// Initial dashboard build had broken dependencies. Reconfiguring to account for this.
-//
 // Dashboard Components
 import Dashboard from "./scenes/dashboard/index"
 import Team from "./scenes/team"

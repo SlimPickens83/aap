@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import Axios from "axios"
 import { useImmerReducer } from "use-immer"
@@ -78,6 +78,8 @@ function ClientRegistration() {
       dispatch({ type: "errors", value: "There was a problem or the request was canceled." })
     }
   }
+
+  // A function that registers a client from Formik values in addClient
 
   const redirectToRoot = () => navigate("/")
 

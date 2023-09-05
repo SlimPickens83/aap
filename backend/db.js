@@ -13,4 +13,3 @@ async function start() {
 
 start()
 console.log("Db is running.")
-console.log(process.env.CONNECTIONSTRING)

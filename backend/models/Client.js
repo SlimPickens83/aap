@@ -34,7 +34,6 @@ Client.prototype.register = function () {
       await clientsCollection.insertOne(this.data)
       resolve()
     } else {
-      f
       reject(this.errors)
     }
   })
