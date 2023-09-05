@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react"
+import { useEffect } from "react"
 import ReactDOM from "react-dom/client"
 import { useImmerReducer } from "use-immer"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
@@ -11,7 +11,7 @@ import DispatchContext from "./DispatchContext.jsx"
 
 // Components
 import HeaderLoggedOut from "./components/HeaderLoggedOut.jsx"
-import HeaderLoggedIn from "./components/HeaderLoggedIn.jsx"
+// import HeaderLoggedIn from "./components/HeaderLoggedIn.jsx"
 import Footer from "./components/Footer.jsx"
 import HomeGuest from "./components/HomeGuest.jsx"
 import About from "./components/About.jsx"
@@ -37,7 +37,7 @@ import AddClient from "./scenes/addClient"
 import FAQ from "./scenes/faq"
 // import Geography from "./scenes/geography"
 import Calendar from "./scenes/calendar"
-import { CardGiftcard, FormatListNumbered } from "@mui/icons-material"
+// import { CardGiftcard, FormatListNumbered } from "@mui/icons-material"
 
 function App() {
   const initialState = {
@@ -146,7 +146,7 @@ function App() {
             <Route path="/admin_login" element={<AdminLogin />} />
 
             {/* Dashboard Routes */}
-            <Route path="/Dashboard/*" element={state.loggedIn ? <MainDashboard dashComponent={<Dashboard />} /> : <AccessDenied />} />
+            <Route path="/Dashboard/*" element={state.loggedIn ? <MainDashboard dashComponent={<Dashboard />} /> : <Navigate to="/" />} />
             <Route path="/Dashboard/team" element={<MainDashboard dashComponent={<Team />} />} />
             <Route path="/Dashboard/contacts" element={<MainDashboard dashComponent={<Contacts />} />} />
             <Route path="/Dashboard/invoices" element={<MainDashboard dashComponent={<Invoices />} />} />

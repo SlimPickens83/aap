@@ -1,7 +1,9 @@
-import React, { useEffect, useContext } from "react"
+import { useContext } from "react"
 import { Box, IconButton, useTheme } from "@mui/material"
 import { ColorModeContext, tokens } from "../../theme"
+import DispatchContext from "../../DispatchContext"
 import InputBase from "@mui/material/InputBase"
+import LogoutIcon from "@mui/icons-material/Logout"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined"
@@ -10,9 +12,13 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
 import SearchIcon from "@mui/icons-material/Search"
 
 function Topbar() {
+  const appDispatch = useContext(DispatchContext)
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const colorMode = useContext(ColorModeContext)
+  const logoutHandler = () => {
+    appDispatch({ type: "logout" })
+  }
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -35,6 +41,9 @@ function Topbar() {
         </IconButton>
         <IconButton>
           <PersonOutlinedIcon />
+        </IconButton>
+        <IconButton onClick={logoutHandler}>
+          <LogoutIcon />
         </IconButton>
       </Box>
     </Box>
