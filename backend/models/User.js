@@ -4,8 +4,8 @@ const validator = require("validator")
 
 let User = function (data) {
   this.admin = false
-  // this.client = false
-  // this.employee = false
+  this.client = false
+  this.employee = false
   this.data = data
   this.errors = []
 }
@@ -22,7 +22,6 @@ User.prototype.cleanUp = function () {
     username: this.data.username.trim().toLowerCase(),
     email: this.data.email.trim().toLowerCase(),
     password: this.data.password,
-    permission: this.data.permission,
     firstName: this.data.firstName,
     lastName: this.data.lastName,
     adminKey: this.data.adminKey,

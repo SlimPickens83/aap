@@ -1,14 +1,13 @@
-import { useEffect, useState, useContext } from "react"
+import { useState, useContext } from "react"
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
-import { Link } from "react-router-dom"
 import StateContext from "../../StateContext"
 import { tokens } from "../../theme"
 import InboxIcon from "@mui/icons-material/Inbox"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined"
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined"
+import ViewListOutlinedIcon from "@mui/icons-material/ViewListOutlined"
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined"
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined"
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined"
@@ -113,12 +112,12 @@ function Side() {
             </Typography>
             <Item title="Manage Users" to="/Dashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Contacts Information" to="/Dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Invoice Balances" to="/Dashboard/invoices" icon={<ReceiptOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Client List" to="/Dashboard/invoices" icon={<ViewListOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Pages
             </Typography>
-            <Item title="Add Clients" to="/Dashboard/addClient" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Add Client" to="/Dashboard/addClient" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Calendar" to="/Dashboard/calendar" icon={<CalendarTodayOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="FAQ Page" to="/Dashboard/faq" icon={<HelpOutlinedIcon />} selected={selected} setSelected={setSelected} />
           </Box>
