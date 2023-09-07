@@ -28,7 +28,7 @@ import AccessDenied from "./components/accessDenied"
 // Dashboard Components
 import Dashboard from "./scenes/dashboard/index"
 import Team from "./scenes/team"
-import Invoices from "./scenes/invoices"
+import Clients from "./scenes/clients"
 import Contacts from "./scenes/contacts"
 // import Bar from "./scenes/bar"
 import AddClient from "./scenes/addClient"
@@ -149,7 +149,7 @@ function App() {
             <Route path="/Dashboard/*" element={state.loggedIn ? <MainDashboard dashComponent={<Dashboard />} /> : <Navigate to="/" />} />
             <Route path="/Dashboard/team" element={<MainDashboard dashComponent={<Team />} />} />
             <Route path="/Dashboard/contacts" element={<MainDashboard dashComponent={<Contacts />} />} />
-            <Route path="/Dashboard/invoices" element={<MainDashboard dashComponent={<Invoices />} />} />
+            <Route path="/Dashboard/clients" element={<MainDashboard dashComponent={<Clients />} />} />
             <Route path="/Dashboard/addClient" element={<MainDashboard dashComponent={<AddClient />} />} />
             <Route path="/Dashboard/calendar" element={<MainDashboard dashComponent={<Calendar />} />} />
             <Route path="/Dashboard/faq" element={<MainDashboard dashComponent={<FAQ />} />} />

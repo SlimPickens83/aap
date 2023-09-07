@@ -112,7 +112,7 @@ function Side() {
             </Typography>
             <Item title="Manage Users" to="/Dashboard/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
             <Item title="Contacts Information" to="/Dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
-            <Item title="Client List" to="/Dashboard/invoices" icon={<ViewListOutlinedIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Client List" to="/Dashboard/clients" icon={<ViewListOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Pages

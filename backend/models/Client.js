@@ -22,9 +22,14 @@ Client.prototype.cleanUp = function () {
   }
 
   this.data = {
-    clientName: this.data.clientName.trim().toLowerCase(),
+    clientName: this.data.clientName.trim(),
+    owner: this.data.owner.trim(),
+    accountKey: this.data.accountKey,
     clientKey: this.data.clientKey,
-    accountKey: this.data.accountKey
+    email: this.data.email.trim().toLowerCase(),
+    contact: this.data.contact,
+    address1: this.data.address1,
+    address2: this.data.address2
   }
 }
 
@@ -36,6 +41,24 @@ Client.prototype.register = function () {
     } else {
       reject(this.errors)
     }
+  })
+}
+
+Client.prototype.findAll = function () {
+  return new Promise(function (resolve, reject) {
+    clientsCollection
+      .find()
+      .toArray()
+      .then(function (clients) {
+        if (clients) {
+          resolve(clients)
+        } else {
+          reject()
+        }
+      })
+      .catch(function (e) {
+        reject()
+      })
   })
 }
 

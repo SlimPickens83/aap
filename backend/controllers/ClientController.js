@@ -13,6 +13,11 @@ exports.ifClientExists = function (req, res, next) {
     })
 }
 
+exports.allClients = async function (req, res) {
+  let clients = await Client.findAll()
+  res.json(clients)
+}
+
 exports.clientData = function (req, res) {
   console.log("req.clientMember in ClientController.js, exports.clientData:")
   console.log(req.clientMember)

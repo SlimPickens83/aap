@@ -10,8 +10,10 @@ import Tooltip from "@mui/material/Tooltip"
 import AdminHeader from "../../components/dashComponents/AdminHeader"
 
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  clientName: "",
+  owner: "",
+  accountKey: "",
+  clientKey: "",
   email: "",
   contact: "",
   address1: "",
@@ -23,30 +25,34 @@ const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -
 const clientSchema = yup.object().shape({
   clientName: yup.string().required("required"),
   owner: yup.string().required("required"),
+  accountKey: yup.string().required("required"),
+  clientKey: yup.string().required("required"),
   email: yup.string().email("Invalid email").required("required"),
   contact: yup.string().matches(phoneRegExp, "Invalid phone number").required("required"),
   address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
-  clientKey: yup.string().required("required"),
-  accountKey: yup.string().required("required")
+  address2: yup.string().required("required")
 })
 
 function AddClient() {
   const isNonMobile = useMediaQuery("(min-width: 600px)")
   const appDispatch = useContext(DispatchContext)
   const navigate = useNavigate()
-  const redirect = () => navigate("/")
+  // const redirect = () => navigate("/")
   const [errors, setErrors] = useState()
 
   const registerFormik = async function (values) {
     try {
       const response = await Axios.post("/clientRegister", {
-        username: values.username,
+        clientName: values.clientName,
+        owner: values.owner,
+        accountKey: values.accountKey,
+        clientKey: values.clientKey,
         email: values.email,
-        password: values.password
+        contact: values.contact,
+        address1: values.address1,
+        address2: values.address2
       })
       appDispatch({ type: "register", data: response.data.user.data })
-      redirect()
     } catch {
       setErrors("There was a problem or the request was canceled.")
     }
@@ -55,6 +61,7 @@ function AddClient() {
   const handleFormSubmit = values => {
     registerFormik(values)
     console.log(values)
+    navigate("/Dashboard")
   }
 
   return (

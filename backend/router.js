@@ -30,10 +30,7 @@ router.post("/adminLogin", adminController.authenticate)
 router.post("/clientAuth", clientController.ifClientExists, clientController.clientData)
 router.post("/clientRegister", clientController.register)
 
-// Portal routes
-
-// Job routes
-
-// Invoice routes
+// Dashboard routes
+router.get("/Dashboard/clients", clientController.allClients)
 
 module.exports = router
