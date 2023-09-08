@@ -24,6 +24,7 @@ function Clients() {
   }, [])
 
   const columns = [
+    { field: "id", headerName: "ID", flex: 1 },
     { field: "clientName", headerName: "Client", flex: 1 },
     { field: "owner", headerName: "Owner", flex: 1, cellClassName: "name-column--cell" },
     { field: "accountKey", headerName: "Account Key", flex: 1 },

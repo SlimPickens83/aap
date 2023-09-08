@@ -22,6 +22,7 @@ Client.prototype.cleanUp = function () {
   }
 
   this.data = {
+    id: "",
     clientName: this.data.clientName.trim(),
     owner: this.data.owner.trim(),
     accountKey: this.data.accountKey,
@@ -44,13 +45,25 @@ Client.prototype.register = function () {
   })
 }
 
-Client.prototype.findAll = function () {
+Client.findAll = function () {
+  // function insertID(mongoID) {
+  //   return ObjectId(mongoID)
+  // }
+
   return new Promise(function (resolve, reject) {
     clientsCollection
       .find()
       .toArray()
       .then(function (clients) {
-        if (clients) {
+        // MUI data grid requires each element/row to have an id property.
+        // If the array elements have an id property, resolve with inital array.
+        if (clients[0].id) {
+          resolve(clients)
+          // Otherwise, copy MongoDB _id to id property of each element/row.
+        } else if (clients.length) {
+          clients.forEach(client => {
+            client.id = client._id
+          })
           resolve(clients)
         } else {
           reject()
