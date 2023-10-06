@@ -104,14 +104,20 @@ User.prototype.register = function () {
   return new Promise(async (resolve, reject) => {
     // Validate user data.
     // this.cleanUp()
+    console.log("PRE-VALIDATE")
     await this.validate()
-
+    console.log("POST-VALIDATE")
+    console.log(`this.errors in User.js, User.prototype.register: ${this.errors}`)
     // Hash user password and save user to database upon successful validation.
     if (!this.errors.length) {
+      console.log(`Password before bcrypt: ${this.data.password}`)
       this.data.password = bcrypt.hashSync(this.data.password, 10)
+      console.log(`Password after bcrypt: ${this.data.password}`)
       await usersCollection.insertOne(this.data)
+      console.log("User registered successfully. " + this.data)
       resolve(this.data)
     } else {
+      console.log(`Errors in User.js, User.prototype.register: ${this.errors}`)
       reject(this.errors)
     }
   })

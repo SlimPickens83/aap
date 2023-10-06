@@ -40,12 +40,15 @@ exports.register = function (req, res) {
   user
     .register()
     .then(() => {
+      console.log("**TOKEN START**")
       res.json({
         token: jwt.sign({ _id: user.data._id, username: user.data.username }, process.env.JWTSECRET, { expiresIn: tokenLasts }),
         username: user.data.username
       })
+      console.log("**TOKEN END**")
     })
     .catch(regErrors => {
+      console.log(`Errors in UserController.js, exports.register: ${regErrors}`)
       res.status(500).send(regErrors)
     })
 }
