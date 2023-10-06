@@ -6,7 +6,7 @@ const adminController = require("./controllers/AdminController")
 const cors = require("cors")
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTENDURL,
   optionsSuccessStatus: 200
 }
 
