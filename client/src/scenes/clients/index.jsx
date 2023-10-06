@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
-import { Box, Typography, useTheme } from "@mui/material"
+import { Box, useTheme } from "@mui/material"
 import { DataGrid } from "@mui/x-data-grid"
 import { tokens } from "../../theme"
-import { mockDataInvoices } from "../../data/mockData"
 import AdminHeader from "../../components/dashComponents/AdminHeader"
 
 function Clients() {
