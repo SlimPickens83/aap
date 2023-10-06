@@ -4,6 +4,7 @@ import { useImmerReducer } from "use-immer"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import "./dash.css"
 import Axios from "axios"
+console.log(import.meta.env.VITE_BACKENDURL)
 Axios.defaults.baseURL = import.meta.env.VITE_BACKENDURL
 
 import StateContext from "./StateContext.jsx"
